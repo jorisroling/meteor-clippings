@@ -1,6 +1,6 @@
 Package.describe({
 	name: 'jorisroling:meteor-clippings',
-	version: '0.0.1',
+	version: '0.0.2',
 	// Brief, one-line summary of the package.
 	summary: 'Web Clippings with Meteor',
 	// URL to the Git repository containing the source code for this package.
@@ -19,7 +19,7 @@ Package.onUse(function(api) {
 		'phambanhan:xml2js@0.0.2',
 	]);
     api.addFiles('server.js', 'server');
-	api.addFiles(['clipping.html','clipping.js'], 'client');
+	api.addFiles(['clipping.html','clipping.css','client.js'], 'client');
 	api.export('clippings');
 	
 	Npm.depends({
@@ -28,13 +28,14 @@ Package.onUse(function(api) {
 		'chokidar':'1.5.1',
 		'slug':'0.9.1',
 		'mime-types':'2.1.11',
+		'request':'2.72.0',
 	});
 	
 });
 
-// Package.onTest(function(api) {
-// 	api.use('ecmascript');
-// 	api.use('tinytest');
-// 	api.use('meteor-clippings');
-// 	api.mainModule('meteor-clippings-tests.js');
-// });
+Package.onTest(function(api) {
+	api.use('ecmascript');
+	api.use('tinytest');
+	api.use('meteor-clippings');
+	api.mainModule('tests.js');
+});

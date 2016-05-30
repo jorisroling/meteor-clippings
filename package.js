@@ -36,6 +36,6 @@ Package.onUse(function(api) {
 Package.onTest(function(api) {
 	api.use('ecmascript');
 	api.use('tinytest');
-	api.use('meteor-clippings');
+	api.use('jorisroling:meteor-clippings');
 	api.mainModule('tests.js');
 });
